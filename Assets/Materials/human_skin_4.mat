@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Skin_Pre-integrated 3
+  m_Name: human_skin_4
   m_Shader: {fileID: 4800000, guid: 477fd3bd29f012d479f08b610c14d40f, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: CALCU_CURVE _CALCU_CURVE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: da6bfbac60d300d468f9e62f420c068d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CurveMap:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e99b6bea5c52fd149bf11a97aaac676a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SkinLUT:
@@ -46,14 +46,14 @@ Material:
     m_Floats:
     - _BumpStrength: 1
     - _CalcuCurve: 0
-    - _Curve: 1
+    - _Curve: 0.5
     - _FIXED_CURVE: 0
     - _FixedCurve: 0
     - _Glossiness: 0.5
     - _Metallic: 0
     - _Scattering: 1
-    - _Specular: 1
+    - _Specular: 3
     - _Thickness: 0.5
     - _Translucency: 0.5
     m_Colors:
-    - _Color: {r: 0.5, g: 0.29916543, b: 0.20990565, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

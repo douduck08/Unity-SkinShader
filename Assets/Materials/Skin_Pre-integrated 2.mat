@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skin_Pre-integrated 2
-  m_Shader: {fileID: 4800000, guid: 748271b08b2896c429b5107f73b0b091, type: 3}
+  m_Shader: {fileID: 4800000, guid: 477fd3bd29f012d479f08b610c14d40f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CurveMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _KelemenLUT:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -36,11 +44,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _BumpStrength: 1
+    - _CalcuCurve: 0
     - _Curve: 1
-    - _Glossiness: 1
+    - _FIXED_CURVE: 0
+    - _FixedCurve: 0
+    - _Glossiness: 0.5
     - _Metallic: 0
     - _Scattering: 1
-    - _Thickness: 1
-    - _Translucency: 1
+    - _Specular: 1
+    - _Thickness: 0.5
+    - _Translucency: 0.5
     m_Colors:
     - _Color: {r: 0.9716981, g: 0.8157187, b: 0.60960305, a: 1}
