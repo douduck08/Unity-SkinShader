@@ -54,6 +54,6 @@ Material:
     - _Scattering: 1
     - _Specular: 3
     - _Thickness: 0.5
-    - _Translucency: 0.5
+    - _Translucency: 0.089
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
