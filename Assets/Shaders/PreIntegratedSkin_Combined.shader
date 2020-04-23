@@ -1,4 +1,4 @@
-﻿Shader "Skin/Pre-integrated Skin"
+﻿Shader "Skin/Pre-integrated Skin (Combined)"
 {
     Properties
     {
@@ -6,18 +6,14 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Specular ("Specular", Range(0,10)) = 1.0
 
-        _MetallicMap ("Metallic Map", 2D) = "white" {}
+        _CombinedMap ("Occlusion(R) Smoothness(G) Metallic(B) Translucency(A)", 2D) = "white" {}
         _Metallic ("Metallic", Range(0,1)) = 0.0
-        _GlossinessMap ("Smoothness Map", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        _Occlusion ("Occlusion", Range(0,1)) = 0.0
+        _Translucency ("Translucency", Range(0,1)) = 1.0
         
         _BumpMap ("Normal Map", 2D) = "bump" {}
         _BumpStrength ("Normal Strength", Range(0,2)) = 1
-        _OcclusionMap ("Occlusion Map", 2D) = "white" {}
-        _Occlusion ("Occlusion", Range(0,1)) = 0.0
-
-        _TranslucencyMap ("Translucency Map", 2D) = "white" {}
-        _Translucency ("Translucency", Range(0,1)) = 1.0
         _ThicknessMap ("Thickness Map", 2D) = "white" {}
         _Thickness ("Thickness", Range(0,1)) = 1.0
 
@@ -52,11 +48,8 @@
         };
 
         sampler2D _MainTex;
-        sampler2D _MetallicMap;
-        sampler2D _GlossinessMap;
+        sampler2D _CombinedMap;
         sampler2D _BumpMap;
-        sampler2D _OcclusionMap;
-        sampler2D _TranslucencyMap;
         sampler2D _ThicknessMap;
 
         half4 _Color;
@@ -79,14 +72,16 @@
             o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_MainTex));
             o.Normal.xy *= _BumpStrength;
 
-            o.Metallic = tex2D(_MetallicMap, IN.uv_MainTex).r * _Metallic;
-            o.Smoothness = tex2D(_GlossinessMap, IN.uv_MainTex).r * _Glossiness;
-            o.Occlusion = tex2D(_OcclusionMap, IN.uv_MainTex).r * _Occlusion;
+            half4 combined = tex2D(_CombinedMap, IN.uv_MainTex);
+
+            o.Metallic = combined.b * _Metallic;
+            o.Smoothness = combined.g * _Glossiness;
+            o.Occlusion = combined.r * _Occlusion;
             o.Emission = 0;
 
             o.Specular = _Specular;
             o.Thickness = tex2D(_ThicknessMap, IN.uv_MainTex).r * _Thickness;
-            o.Translucency = tex2D(_TranslucencyMap, IN.uv_MainTex).r * _Translucency;
+            o.Translucency = combined.a * _Translucency;
 
             #ifdef _CALC_CURVE
             o.Curve = length(fwidth(IN.worldNormal)) / length(fwidth(IN.worldPos)) * _Curve;
