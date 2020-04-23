@@ -89,6 +89,7 @@
             o.Translucency = tex2D(_TranslucencyMap, IN.uv_MainTex).r * _Translucency;
 
             #ifdef _CALC_CURVE
+            IN.worldNormal = WorldNormalVector(IN, float3(0,0,1));
             o.Curve = length(fwidth(IN.worldNormal)) / length(fwidth(IN.worldPos)) * _Curve;
             #else
             o.Curve = tex2D (_CurveMap, IN.uv_MainTex).r * _Curve;
